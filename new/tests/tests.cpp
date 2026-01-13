@@ -11,6 +11,10 @@
 
 #include <iostream>
 
+TEST(test, test){
+    std::cout << "";
+}
+
 TEST(test, tosuncan){
     initialize_lib_tscan(true, true, true);
 
@@ -63,6 +67,7 @@ TEST(test, tosuncan){
     for(int i = 0; i < 10; i++){
         tscan_transmit_can_sync(handle0, &canFrame, 100);
         tscan_transmit_can_sync(handle1, &canFrame, 100);
+        usleep(100000);
 //        std::cout << "set can frame, result: " << tscan_transmit_can_sync(handle0, &canFrame, 100) << std::endl;
 //        std::cout << "set can frame, result: " << tscan_transmit_can_sync(handle1, &canFrame, 100) << std::endl;
     }
@@ -82,4 +87,3 @@ TEST(test, tosuncan){
     std::cout << "device disconnect, result: " << tscan_disconnect_by_handle(handle0);
     std::cout << "device disconnect, result: " << tscan_disconnect_by_handle(handle1);
 }
-

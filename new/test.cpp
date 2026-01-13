@@ -6,6 +6,7 @@
 #include "libTSCAN.h"
 #else
 #include "TSCANDef.hpp"
+#include "unistd.h"
 #endif
 
 #include <iostream>
@@ -67,6 +68,7 @@ int main(){
         tscan_transmit_can_sync(handle1, &canFrame, 100);
 //        std::cout << "set can frame, result: " << tscan_transmit_can_sync(handle0, &canFrame, 100) << std::endl;
 //        std::cout << "set can frame, result: " << tscan_transmit_can_sync(handle1, &canFrame, 100) << std::endl;
+        usleep(100000);
     }
 
     TLibCAN canFrameBuffer[10];
